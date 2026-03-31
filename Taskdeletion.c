@@ -1,12 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include"functions.h"
-struct Task
-{
-    int ID;
-    char Taskname[100];
-};
+#include"main.h"
+
 int deleteTask(struct Task T[], int n)
 {
     int id ,i ,j;
@@ -21,7 +14,7 @@ int deleteTask(struct Task T[], int n)
         }
         n--;
         printf("Task Deleted succesfully!\n");
+        return n;
     }
     printf("Task not found!\n");
-    return n;
 }

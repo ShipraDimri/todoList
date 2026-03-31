@@ -1,41 +1,34 @@
 #include "main.h"
-struct todo *list = NULL;
-int count = 0;
 #include"auth.c"
 #include"addAndView.c"
-int main(){
-    if(login()!=1){
+#include"Taskupdate.c"
+#include"Taskdeletion.c"
+
+ struct Task *list = NULL;
+  int count = 0;
+int main() {
+    if (login() != 1){
         printf("invalid password");
-        return 0;
-    }
+        return 0;}
+
     int choice;
     char ch;
-    do{
-    printf("\n1.AddTask   ,2.ViewTask    ,3.UpdateTask    ,4.DeleteTask");
-    printf("enter the choice:");
-    scanf("%d",&choice);
+    do {
+        printf("\n1.Add  2.View  3.Update  4.Delete  5.Exit\nChoice: ");
+        scanf("%d", &choice);
 
-    switch(choice){
-        case 1: addTask();
-                break;
-        case 2: viewTask();
-                break;
-        case 3:updateTask();
-               break;
-        case 4:deleteTask();
-               break;
-        default: printf("invalid choice");
+        switch(choice) {
+            case 1: addTask(); break;
+            case 2: viewTask(); break;
+            case 3: updateTask(list, count); break;
+            case 4: count = deleteTask(list, count); break; // Count update hoga
+            case 5: exit(0);
+            default: printf("Invalid choice!");
+        }
+        printf("\nDo you want to continue? (y/n): ");
+        scanf(" %c", &ch);
+    } while (ch == 'y' || ch == 'Y');
 
-                 break;
-    }
-
-printf("do you want to continue?(y/n)");
-scanf(" %c",&ch);
+    free(list);
+    return 0;
 }
-while(ch=='y'||ch=='Y');
-
-printf("existing.....memory freed\n");
-free(list);
-return 0;
-}
-

@@ -1,4 +1,6 @@
 
+extern struct Task *list; 
+extern int count;
 void addTask() {
     list = realloc(list, (count + 1) * sizeof(struct Task));
     
@@ -17,7 +19,7 @@ void addTask() {
 }
 void viewTask() {
     if (count == 0) {
-        printf("List khali hai!\n");
+        printf("empty!\n");
         return;
     }
     printf("\n--- YOUR TASKS ---\n");

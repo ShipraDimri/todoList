@@ -1,18 +1,11 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include"functions.h"
-struct Task
-{
-    int ID;
-    char Taskname[100];
-};
+#include"main.h"
+
 void updateTask(struct Task T[], int n)
 {
     int id, i,j;
     char newTask[100];
     printf("Enter ID to update task: ");
-    scanf("%d",&id);
+    scanf(" %d",&id);
     for(i=0; i<n; i++)
     {
         if(T[i].ID == id)
@@ -24,6 +17,7 @@ void updateTask(struct Task T[], int n)
         }
         T[i].Taskname[j] = '\0';
         printf("Task update successfully!\n");
+        return;
     }
     printf("ID not found\n");
 }
