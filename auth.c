@@ -5,7 +5,6 @@
 char registeredUser[30] = ""; 
 char registeredPass[30] = "";
 int isRegistered = 0;
-
 int login() {
     char u[30], p[30];
     int choice;
