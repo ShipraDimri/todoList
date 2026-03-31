@@ -1,4 +1,4 @@
-
+#include"main.h"
 extern struct Task *list; 
 extern int count;
 void addTask() {
