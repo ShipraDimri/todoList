@@ -4,7 +4,6 @@ extern int count;
 void addTask() {
     list = realloc(list, (count + 1) * sizeof(struct Task));
     
-    // Ye line sabse zaroori hai: ID assign karna
     list[count].ID = count + 1; 
 
     printf("Task Name: ");
@@ -32,7 +31,6 @@ void viewTask() {
         } else {
             strcpy(statusText, "Completed");
         }
-
         printf("ID: %d | Name: %s | Priority: %d | Status: [%s]\n", 
                 list[i].ID, list[i].Taskname, list[i].priority, statusText);
     }
