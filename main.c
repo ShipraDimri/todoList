@@ -15,7 +15,7 @@ int main() {
     char ch;
     do {
         printf("\n1.Add  2.View  3.Update  4.Delete  5.Exit\nChoice: ");
-        scanf("%d", &choice);
+        scanf(" %d", &choice);
 
         switch(choice) {
             case 1: addTask(); break;
