@@ -1,25 +1,35 @@
-#include"main.h"
 
-void updateTask(struct Task T[], int n)
-{
-    int id, i,j;
+#include "main.h"
+void updateTask(struct Task T[], int n) {
+    int id, i, choice;
     char newTask[100];
+    
     printf("Enter ID to update task: ");
-    scanf(" %d",&id);
-    for(i=0; i<n; i++)
-    {
-        if(T[i].ID == id)
-        printf("Enter new Task: ");
-        scanf("%s",newTask);
-        for(j=0; newTask[j]!='\0'; j++)
-        {
-            T[i].Taskname[j] = newTask[j];
+    scanf("%d", &id);
+
+    for(i = 0; i < n; i++) {
+        if(T[i].ID == id) {
+            printf("\n--- Updating Task ID: %d ---\n", id);
+            printf("1. Update Task Name\n");
+            printf("2. Mark as Completed (Status Update)\n");
+            printf("3. Update Both\n");
+            printf("Choice: ");
+            scanf("%d", &choice);
+
+            if (choice == 1 || choice == 3) {
+                printf("Enter new Task Name: ");
+                scanf(" %[^\n]s", T[i].Taskname); // Space ke sath naam lene ke liye
+            }
+
+            if (choice == 2 || choice == 3) {
+                T[i].status = 1; // Mark as Completed
+                printf("Status marked as COMPLETED!\n");
+            }
+
+            printf("Task updated successfully!\n");
+            return;
         }
-        T[i].Taskname[j] = '\0';
-        printf("Task update successfully!\n");
-        return;
     }
     printf("ID not found\n");
 }
-
 
