@@ -42,7 +42,10 @@ int login() {
                 printf("invalid username or password!\n");
             }
         } 
-        else if(choice == 3) return 0;
+        else if(choice == 3) {
+            printf("Exiting the program. Goodbye!\n");
+            exit(0);
+            }
         else{
             printf("Invalid choice! Please try again.\n");
         }
