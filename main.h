@@ -12,7 +12,6 @@ struct Task {
     int status;
 };
 
-// Prototypes (List of functions)
 int login();
 void addTask();
 void viewTask();
