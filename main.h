@@ -18,4 +18,7 @@ void viewTask();
 void updateTask(struct Task T[], int n); 
 int deleteTask(struct Task T[], int n);
 
+void saveAllToFile();
+
+
 #endif
