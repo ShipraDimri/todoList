@@ -1,5 +1,6 @@
 
 #include "main.h"
+
 void updateTask(struct Task T[], int n) {
     int id, i, choice;
     char newTask[100];
@@ -27,9 +28,21 @@ void updateTask(struct Task T[], int n) {
             }
 
             printf("Task updated successfully!\n");
+            saveAllToFile(); // Update the file with the modified task
             return;
         }
     }
     printf("ID not found\n");
 }
 
+void saveAllToFile() {
+    FILE *fp = fopen("todo.txt", "w"); // "w" mode purani file ko clear karke naya data likhega
+    if (fp != NULL) {
+        for (int i = 0; i < count; i++) {
+            list[i].ID=i+1;
+            char *statusStr = (list[i].status == 0) ? "Pending" : "Completed";
+            fprintf(fp, "%d|%s|%d|%s\n", list[i].ID, list[i].Taskname, list[i].priority, statusStr);
+        }
+        fclose(fp);
+    }
+}
