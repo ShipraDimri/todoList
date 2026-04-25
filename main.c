@@ -7,15 +7,16 @@
  struct Task *list = NULL;
   int count = 0;
 int main() {
-    if (login() != 1){
-        printf("invalid password");
-        return 0;}
-
+  login();
+        
+        loadTasks(); // File data load karo
+    
     int choice;
     char ch;
     do {
         printf("\n1.Add  2.View  3.Update  4.Delete  5.Exit\nChoice: ");
         scanf(" %d", &choice);
+
 
         switch(choice) {
             case 1: addTask(); break;
