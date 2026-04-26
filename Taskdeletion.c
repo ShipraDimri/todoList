@@ -13,6 +13,7 @@ int deleteTask(struct Task T[], int n)
             T[j]=T[j+1];
         }
         n--;
+        count=n;
         saveAllToFile();
         printf("Task Deleted succesfully!\n");
         return n;
