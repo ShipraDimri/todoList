@@ -11,10 +11,8 @@ void addTask() {
     list[count].status = 0;
     count++;
     saveAllToFile();
-    // File mein save karne wali line ye rakho (format: ID|Name|Priority|Status)
     /*FILE *fp = fopen("todo.txt", "a");
     if (fp != NULL) {
-        // Yahan dhyan de: har field ke beech mein '|' hai
         fprintf(fp, "%d|%s|%d|Pending\n", list[count].ID, list[count].Taskname, list[count].priority);
         fclose(fp);
     }
